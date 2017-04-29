@@ -17,6 +17,9 @@ const circle2DFunctions = {
       return PQ.normalize().multiplyScalar(r).add(P);
     }
   },
+  isPointOnCircle: function pointIsOnCircle (Q) {
+    return GeomUtils.NumericalCompare.numbersAreEqual(Q.distanceTo(this.center), this.radius);
+  },
   intersectWithInfiniteLine: function intersectWithInfiniteLine (infLine) {
     return infLine.intersectWithCircle(this);
   },
