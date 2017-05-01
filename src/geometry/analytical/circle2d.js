@@ -5,13 +5,15 @@ const Vector2 = _Math.Vector2;
 const InfiniteLine2D = require('./infiniteLine2d.js');
 
 const GeomUtils = require('./analyticalUtils.js');
+const EPSILON = GeomUtils.NumericalCompare.EPSILON;
 
 const circle2DFunctions = {
+  // TODO: Determine if the center point should be returned ever.
   getClosestPointTo: function closestPointTo (Q) {
     const P = this.center;
     const r = this.radius;
     const PQ = Q.clone().sub(P);
-    if (GeomUtils.isZero(PQ.length())) {
+    if (GeomUtils.NumericalCompare.isZero(PQ.length())) {
       return undefined;
     } else {
       return PQ.normalize().multiplyScalar(r).add(P);
@@ -46,7 +48,7 @@ const circle2DFunctions = {
     const C = c / den;
     const beta = _Math.atan2(A, B);
     if (_Math.abs(C) <= 1) {
-      if (_Math.abs(C) > 1 - GeomUtils.EPSILON) {
+      if (_Math.abs(C) > 1 - EPSILON) {
         // one intersection
         const t = _Math.sign(C) * _Math.PI / 2 - beta;
         results.push(new Vector2(x1 + r1 * _Math.cos(t), y1 + r1 * _Math.sin(t)));

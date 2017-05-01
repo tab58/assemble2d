@@ -1,5 +1,6 @@
 'use strict';
 
+/* global describe it */
 const _Math = require('../src/math/math.js');
 const TestAsserts = require('./testAsserts.js');
 
