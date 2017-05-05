@@ -27,5 +27,11 @@
   "dependencies": {
     "@stdlib/stdlib": "0.0.0",
     "webpack": "^2.4.1"
+  },
+  "eslintConfig": {
+    "globals": {
+      "describe": true,
+      "it": true
+    }
   }
 }

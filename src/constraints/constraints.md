@@ -19,11 +19,12 @@ Constraints are main workhorse of the Assemble2D system. Constraints are compose
 ## Compound Constraints
   
 - Co-oriented (M1, M2)
-    + Same as parallel
+    + Parallel(M1, M2) and Offset(M1, M2, 0)
 - Perpendicular (M1, M2)
-    + Same as Offset(M1, M2, pi/2)
-- Angle (M1, M2, alpha)
-    + Same as Offset(M1, M2, alpha)
+    + Offset(M1, M2, pi/2)
+
+## Displacement Constraint
+
 - Displacement (M1, M2, All reals)
     + Specifies distance from M1 to M2 measured along M2's positive axis
 
@@ -32,3 +33,30 @@ Constraints are main workhorse of the Assemble2D system. Constraints are compose
 - Revolute: Coincident
 - Sliding Pin: Inline
 - Sliding Fixed: Inline + (Offset/Parallel)
+
+## Geometric Predicates
+
+### Translation Predicates
+
+- `geom-has-2-TDOF(G)`  
+    - no translational constraints
+- `geom-has-1-TDOF(G, P, L, f)` -- no translational constraints
+    - keeps `P` (point) on `L` (line)
+    - `f` is either `P` or `L`, whichever is fixed in the geom `G`.
+- `geom-has-1/2-TDOF(G, P, obj)`
+    + keeps `P` (point) on `obj` (object)
+    + `obj` is a 1D curve that's coupled with a rotation (?)
+- `geom-has-0-TDOF(G, P)`
+    + keeps `G` (geom) at `P` (point)
+    + `P` is an expression involving markers
+    + `P` denotes the center of rotation
+
+### Rotation Predicates
+
+- `geom-has-1-RDOF(G)`
+    + no rotational constraints
+- `geom-has-1/2-RDOF(G, A)`
+    + `A` (axis) is rotation axis (probably always z-axis)
+    + contains angle input to the predicate `geom-has-1/2-TDOF(G, P, obj)`
+- `geom-has-0-RDOF(G)`
+    + fully rotationally constrained

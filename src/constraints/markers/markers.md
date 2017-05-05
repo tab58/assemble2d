@@ -18,4 +18,12 @@ The position is defined in terms of a "parent" marker, which serves as the local
 
 *.axis* -- the local marker axis, or the orientation vector of the marker. This is given in terms of the parent marker, where the parent axis is the X-axis.
 
-*.transform()* -- the local coordinate transform, or the 3x3 rotation matrix that will translate from the local coordinate system (the parent coordinate system) to the global coordinate system (the highest coordinate system in the parent chain).
+## Marker Functions
+
+- `LCF(M)` - local coordinate frame in which M is defined (3x3 matrix)
+- `LMP(M)` - local marker position, defined in local frame (Vec2)
+- `LMX(M)` - local marker axis, defined in local frame
+- `GMP(M)` - global marker position
+    + defined as `LCF(M) * LMP(M)`
+- `GMX(M)` - global marker axis
+    + defined as `LCF(M) * LMX(M)`
