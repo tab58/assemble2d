@@ -1,1 +1,9 @@
+# no NPM artifacts
 node_modules/
+*.log
+
+# no WebStorm artifacts
+.idea/
+
+# don't build artifacts
+app/assemble2d.js

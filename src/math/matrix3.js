@@ -137,6 +137,10 @@ Object.assign(Matrix3.prototype, {
     return a * e * i - a * f * h - b * d * i + b * f * g + c * d * h - c * e * g;
   },
 
+  invert: function (throwOnDegenerate) {
+    return this.getInverse(this);
+  },
+
   getInverse: function (matrix, throwOnDegenerate) {
     const me = matrix.elements;
     const te = this.elements;

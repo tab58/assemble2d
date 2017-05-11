@@ -1,6 +1,6 @@
 'use strict';
 
-const _Math = require('../../math/math.js');
+const _Math = require('../math/math.js');
 const Vector2 = _Math.Vector2;
 const Vector3 = _Math.Vector3;
 const GeomUtils = require('./analyticalUtils.js');

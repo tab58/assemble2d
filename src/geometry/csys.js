@@ -1,10 +1,10 @@
 'use strict';
 
-const _Math = require('../../math/math.js');
+const _Math = require('../math/math.js');
 const Vector2 = _Math.Vector2;
 const Matrix2 = _Math.Matrix2;
 const Matrix3 = _Math.Matrix3;
-const Utils = require('../../utils.js');
+const Utils = require('../utils.js');
 
 const pi2 = _Math.PI * 2;
 const CSYS_EQUAL_TOL = _Math.Utils.DEFAULT_TOLERANCE;
@@ -70,8 +70,7 @@ const csysFunctions = {
     const m = csysFunctions.getLocalRotation.call(this, mat2);
     if (this.hasParentCsys()) {
       // TODO: do this premultiply in place
-      const tmp = new Matrix2();
-      m.premultiply(csysFunctions.getGlobalRotation.call(this.parentCsys, tmp));
+      m.premultiply(csysFunctions.getGlobalRotation.call(this.parentCsys, new Matrix2()));
     }
     return m;
   },
@@ -136,10 +135,9 @@ const csysFunctions = {
 
 const Csys = {
   create: function create (parentCsys) {
-    // the csys's unique ID
-    const ID = Utils.getUUID();
     const csys = {
-      ID,
+      // the csys's unique ID
+      ID: Utils.getUUID(),
       // the parent csys defines the coordinate system
       parentCsys: parentCsys,
       // the orientation in 2D of the csys w.r.t parent coordinate system
@@ -153,5 +151,14 @@ const Csys = {
     return csys;
   }
 };
+
+Object.assign(csysFunctions, {
+  clone: function clone () {
+    const clon = Csys.create(this.parentCsys);
+    clon.axis = this.axis.clone();
+    clon.position = this.position.clone();
+    return clon;
+  }
+});
 
 module.exports = Csys;

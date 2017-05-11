@@ -4,7 +4,7 @@ const _Math = require('../../math/math.js');
 
 const EPSILON = 1e-10;
 
-const AnalyticalUtils = {
+const Utils = {
   DEBUG: false,
   NumericalCompare: {
     EPSILON: EPSILON,
@@ -18,9 +18,9 @@ const AnalyticalUtils = {
       return _Math.Utils.isLTZero(x, EPSILON);
     },
     numbersAreEqual: function isEqual (x, y) {
-      return AnalyticalUtils.NumericalCompare.isZero(x - y);
+      return Utils.NumericalCompare.isZero(x - y);
     }
   }
 };
 
-module.exports = AnalyticalUtils;
+module.exports = Utils;

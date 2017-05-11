@@ -4,7 +4,7 @@ const Geometry = require('./geometry/geometry.js');
 const _Math = require('./math/math.js');
 
 // using
-const CoordinateSystem = Geometry.Body.CoordinateSystem;
+const CoordinateSystem = Geometry.CoordinateSystem;
 
 // logic
 const defaultCsys = CoordinateSystem.create();

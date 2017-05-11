@@ -2,19 +2,6 @@
 
 const Geometry2D = require('./geometry2d.js');
 const InfiniteLine2D = require('../analytical/infiniteLine2d.js');
-// const _Math = require('../../math/math.js');
-// const GeomUtils = require('../geomUtils.js');
-
-// const helperFunctions = {
-//   recalculateTriple: function recalculateTriple (vec3) {
-//     const u = this.direction.x;
-//     const v = this.direction.y;
-//     const x = this.point.x;
-//     const y = this.point.y;
-//     const V = (vec3 && vec3.isVector3 ? vec3 : new Vector3());
-//     V.set(-v, u, v * x - u * y);
-//   }
-// };
 
 const lineSegmentFunctions = {
   fixAndReassignCsys: function fixAndReassignCsys (toCsys) {
