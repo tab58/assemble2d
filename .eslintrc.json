@@ -1,0 +1,63 @@
+{
+  "env": {
+    "jest": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "semistandard"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": "@typescript-eslint",
+  "rules": {
+    "@typescript-eslint/no-use-before-define": "off",
+    "arrow-parens": ["error", "parens"],
+    "brace-style": ["error", "1tbs"],
+    "global-require": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/order": "off",
+    "import/prefer-default-export": "off",
+    "max-len": ["error", { "code": 120, "tabWidth": 2 }],
+    "no-await-in-loop": "off",
+    "no-multi-spaces": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "LabeledStatement",
+        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "no-restricted-globals": "off",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
+    "no-use-before-define": "off",
+    "object-curly-newline": [
+      "error",
+      {
+        "consistent": true,
+        "multiline": true
+      }
+    ],
+    "operator-linebreak": "off",
+    "prefer-default-export": "off",
+    "quotes": ["error", "double"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
+  }
+}
